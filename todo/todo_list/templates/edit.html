@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% if item %}
+<form class="form-inline my-2 my-lg-0" method="POST">
+  {% csrf_token %}
+  <input class="form-control mr-sm-2" type="search" placeholder="Edit Task" placeholder="{{ item.task }}" value="{{ item.task }}" aria-label="Search" name="task">
+  <input type="hidden" value="{{ item.completed }}" name="completed">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add to List</button>
+</form>
+
+{% endif %}
+{% endblock %}
+
+
+<!--
+<input class="form-control mr-sm-2" type="search" placeholder="Edit Date" placeholder="{{ item.date }}" value="{{ item.date }}" aria-label="Search" name="date">
+<input class="form-control mr-sm-2" type="search" placeholder="Edit Time" placeholder="{{ item.time }}" value="{{ item.time }}" aria-label="Search" name="time">
+
+
+-->
